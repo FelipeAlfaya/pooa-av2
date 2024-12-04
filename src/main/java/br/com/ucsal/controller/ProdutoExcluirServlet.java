@@ -22,14 +22,11 @@ public class ProdutoExcluirServlet implements Command {
 		try {
 			Integer id = Integer.parseInt(request.getParameter("id"));
 
-			// Chamando o serviço para remover o produto
 			produtoService.removerProduto(id);
 
-			// Redirecionando para a página de listagem após a exclusão
 			response.sendRedirect("listarProdutos");
 
 		} catch (NumberFormatException e) {
-			// Tratamento de erro para ID inválido
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST, "ID inválido.");
 		}
 	}
